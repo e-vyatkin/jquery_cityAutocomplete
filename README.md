@@ -1,4 +1,4 @@
-# jquery_cityAutocomplete
+# jquery.cityAutocomplete
 City autocomplete dropdown
 
 ## How to Use?
