@@ -136,9 +136,9 @@
 
     function updatePredictionsDropDownDisplay(dropDown, input) {
         dropDown.css({
-            'width': input.width(),
+            'width': input.outerWidth(),
             'left': input.offset().left,
-            'top': input.offset().top + input.height()
+            'top': input.offset().top + input.outerHeight()
         });
     }
 
