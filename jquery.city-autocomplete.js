@@ -13,7 +13,7 @@
                     types: ['(cities)']
                 };
 
-                if (input.data('country').length > 0) {
+                if (typeof input.data('country') !== "undefined" && input.data('country').length > 0) {
                     params.componentRestrictions = {country: input.data('country')}
                 }
 
