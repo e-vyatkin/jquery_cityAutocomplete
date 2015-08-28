@@ -1,0 +1,27 @@
+{
+  "name": "jquery_cityAutocomplete",
+  "version": "1.0.0",
+  "homepage": "https://github.com/zhem4ag/jquery_cityAutocomplete",
+  "authors": [
+    "Evgeny Vyatkin <vyatkinevgeny@gmail.com>"
+  ],
+  "description": "City autocomplete dropdown",
+  "main": [
+    "jquery.city-autocomplete.js",
+    "jquery.city-autocomplete.min.js",
+    "city-autocomplete.css"
+  ],
+  "keywords": [
+    "city",
+    "autocomplete"
+  ],
+  "dependencies": {
+    "jquery": ">=1.8"
+  },
+  "license": "MIT",
+  "ignore": [
+    ".gitignore",
+    "README.md",
+    "test.html"
+  ]
+}
