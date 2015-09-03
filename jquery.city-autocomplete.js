@@ -13,8 +13,8 @@
                     types: ['(cities)']
                 };
 
-                if (typeof input.data('country') !== "undefined" && input.data('country').length > 0) {
-                    params.componentRestrictions = {country: input.data('country')}
+                if (typeof input.attr('data-country') !== "undefined" && input.attr('data-country').length > 0) {
+                    params.componentRestrictions = {country: input.attr('data-country')}
                 }
 
                 autocompleteService.getPlacePredictions(params, updatePredictions);
