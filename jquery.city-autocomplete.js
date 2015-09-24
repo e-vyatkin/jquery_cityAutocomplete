@@ -25,6 +25,7 @@
 
         predictionsDropDown.delegate('div', 'click', function() {
             input.val($(this).text());
+            input.trigger('change');
             predictionsDropDown.hide();
         });
 
