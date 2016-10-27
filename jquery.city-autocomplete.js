@@ -1,5 +1,9 @@
 (function ( $ ) {
     $.fn.cityAutocomplete = function(options) {
+        var settings = $.extend({
+            show_state: false,
+            show_country: false
+        }, options);
         var autocompleteService = new google.maps.places.AutocompleteService();
         var predictionsDropDown = $('<div class="city-autocomplete"></div>').appendTo('body');
         var input = this;
@@ -24,7 +28,7 @@
         });
 
         predictionsDropDown.delegate('div', 'click', function() {
-            input.val($(this).text());
+            input.val($(this).find('.city').text());
             input.trigger('change');
             predictionsDropDown.hide();
         });
@@ -49,7 +53,19 @@
 
             predictionsDropDown.empty();
             $.each(predictions, function(i, prediction) {
-                predictionsDropDown.append('<div>' + $.fn.cityAutocomplete.transliterate(prediction.terms[0].value) + '</div');
+                var city = $.fn.cityAutocomplete.transliterate(prediction.terms[0].value),
+                    state = 3 === prediction.terms.length
+                        ? $.fn.cityAutocomplete.transliterate(prediction.terms[1].value)
+                        : '',
+                    country = 3 === prediction.terms.length
+                        ? $.fn.cityAutocomplete.transliterate(prediction.terms[2].value)
+                        : $.fn.cityAutocomplete.transliterate(prediction.terms[1].value);
+                var predictionDiv = '<div>' +
+                    '<span class="city">' + $.fn.cityAutocomplete.transliterate(prediction.terms[0].value) + '</span>' +
+                    (settings.show_state && 0 < state.length ? '<span class="state">' + state + '</span>' : '') +
+                    (settings.show_country && 0 < country.length ? '<span class="country">' + country + '</span>' : '') +
+                    '</div>';
+                predictionsDropDown.append(predictionDiv);
             });
 
             predictionsDropDown.show();

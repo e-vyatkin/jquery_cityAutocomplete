@@ -20,8 +20,22 @@
     font-size: 13px;
     padding: 5px 10px;
     cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .city-autocomplete > div:hover {
     background: #c3cacf;
+}
+
+.city-autocomplete > div > .city {
+    font: inherit;
+}
+
+.city-autocomplete > div > .state,
+.city-autocomplete > div > .country {
+    color: #555;
+    font-size: 10px;
+    margin: 0 3px;
 }
